@@ -1,4 +1,6 @@
 FROM golang:1.14-alpine3.11
+FROM      postgres:13.2
+EXPOSE 5432
 ENV PATH="$PATH:/bin/bash" \
     BENTO4_BIN="/opt/bento4/bin" \
     PATH="$PATH:/opt/bento4/bin"

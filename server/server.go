@@ -15,7 +15,7 @@ type Server struct {
 // construtor de server
 func NewServer() Server {
 	return Server{
-		port:   "5000",
+		port:   "5001",
 		server: gin.Default(),
 	}
 }
