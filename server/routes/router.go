@@ -1,14 +1,18 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/estudo-go/Desafio-cbt/controllers"
+	"github.com/gin-gonic/gin"
+)
 
-func configRoutes(router *gin.Engine) *gin.Engine {
+func ConfigRoutes(router *gin.Engine) *gin.Engine {
 	main := router.Group("api/v1")
 	{
 		transactions := main.Group("trasactions")
 		{
-			transactions.GET("/")
+			transactions.GET("/", controllers.ShowTransaction)
 		}
 	}
+
 	return router
 }

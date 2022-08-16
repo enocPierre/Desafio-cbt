@@ -1,8 +1,9 @@
 package server
 
 import (
+	"github.com/estudo-go/Desafio-cbt/server/routes"
 	"github.com/gin-gonic/gin"
-	"github.com/learming/webapi-mvc-golang/server/routes"
+
 	"log"
 )
 
@@ -11,7 +12,7 @@ type Server struct {
 	server *gin.Engine
 }
 
-// construtor
+// construtor de server
 func NewServer() Server {
 	return Server{
 		port:   "5000",
@@ -19,10 +20,11 @@ func NewServer() Server {
 	}
 }
 
-//instacia o server
+// metodo que vai roda nosso server
 func (s *Server) Run() {
 	router := routes.ConfigRoutes(s.server)
+	//	router := routes.ConfigRoutes(s.server)
 
-	log.Print("Server is runing at port: ", s.port)
+	log.Print("server is runing at port: ", s.port)
 	log.Fatal(router.Run(":" + s.port))
 }
