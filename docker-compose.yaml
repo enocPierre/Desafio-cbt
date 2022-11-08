@@ -1,21 +1,19 @@
-version: '3'
-
+version: '3.7'
 services:
-
   app:
     build: .
     volumes:
-      - .:/go/src/
+      - .:/go/src
   db:
     build:
       context: .
-      dockerfile: .dockerfile
-    image: github.com/hyperyuri/transactions-db
+      dockerfile: dockerfile
+    image: github.com/desafio-cbt/transactiondb
     container_name: desafio-cbt-db
     restart: unless-stopped
     tty: true
     ports:
-      - "25432:5432"
+      - '25432:5432'
     environment:
       POSTGRES_DB: transactions
       POSTGRES_USER: admin
@@ -24,3 +22,5 @@ services:
     volumes:
       - desafio-cbt:/var/lib/postgresql/data
 
+volumes:
+    desafio-cbt:

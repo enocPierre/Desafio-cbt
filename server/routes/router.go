@@ -8,9 +8,11 @@ import (
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
 	main := router.Group("api/v1")
 	{
-		transactions := main.Group("trasactions")
+		transactions := main.Group("transacao")
 		{
+			transactions.GET("/:tipo", controllers.ShowTransaction)
 			transactions.GET("/", controllers.ShowTransaction)
+			//transactions.GET("/", controllers.)
 		}
 	}
 
